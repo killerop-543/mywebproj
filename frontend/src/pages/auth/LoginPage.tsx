@@ -36,13 +36,24 @@ const LoginPage: React.FC = () => {
           text: response.error || 'Invalid email or password',
         });
       }
-    } catch (error) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Login Failed',
-        text: 'An unexpected error occurred. Please try again.',
-      });
-    } finally {
+    // } catch (error) {
+    //   Swal.fire({
+    //     icon: 'error',
+    //     title: 'Login Failed',
+    //     text: 'An unexpected error occurred. Please try again.',
+    //   });
+    // } 
+  } catch (error: any) {
+    const errorMessage =
+      error?.response?.data?.message || 'An unexpected error occurred. Please try again.';
+
+    Swal.fire({
+      icon: 'error',
+      title: 'Login Failed',
+      text: errorMessage,
+    });
+  }
+    finally {
       setLoading(false);
     }
   };
