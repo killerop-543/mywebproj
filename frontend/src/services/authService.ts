@@ -4,7 +4,7 @@ import { User, ApiResponse } from '../types';
 // Register a new user
 export const registerUser = async (userData: User): Promise<ApiResponse<User>> => {
   try {
-    const response = await api.post('https://my-backend2.onrender.com/api/auth/register', userData);
+    const response = await api.post('/auth/register', userData);
     return response.data;
   } catch (error: any) {
     return {
@@ -17,7 +17,7 @@ export const registerUser = async (userData: User): Promise<ApiResponse<User>> =
 // Login user
 export const loginUser = async (email: string, password: string): Promise<ApiResponse<User>> => {
   try {
-    const response = await api.post('https://my-backend2.onrender.com/api/auth/login', { email, password });
+    const response = await api.post('/auth/login', { email, password });
     
     // Save token and user to local storage
     if (response.data.success && response.data.token) {
