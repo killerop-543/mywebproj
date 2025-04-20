@@ -18,6 +18,7 @@ const LoginPage: React.FC = () => {
         icon: 'error',
         title: 'Validation Error',
         text: 'Please fill in all fields',
+        showConfirmButton: true, // Make sure the user has to click to dismiss the alert
       });
       return;
     }
@@ -34,6 +35,7 @@ const LoginPage: React.FC = () => {
           icon: 'error',
           title: 'Login Failed',
           text: response.error || 'Invalid email or password',
+          showConfirmButton: true, // Ensure that the user clicks OK to dismiss the popup
         });
       }
     // } catch (error) {
@@ -51,6 +53,7 @@ const LoginPage: React.FC = () => {
       icon: 'error',
       title: 'Login Failed',
       text: errorMessage,
+      showConfirmButton: true, // Make sure the user can dismiss the alert
     });
   }
     finally {
