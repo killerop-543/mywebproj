@@ -57,7 +57,8 @@ const AdminDashboard: React.FC = () => {
   useEffect(() => {
     if (bookings.length > 0 && services.length > 0) {
       // Calculate various statistics
-      const confirmed = bookings.filter(b => b.status === 'confirmed' || b.status === 'completed');
+      // const confirmed = bookings.filter(b => b.status === 'confirmed' || b.status === 'completed');
+      const confirmed = bookings.filter(b => b.status === 'completed');
       const pending = bookings.filter(b => b.status === 'pending');
       const totalRevenue = confirmed.reduce((sum, booking) => sum + booking.price, 0);
       
@@ -119,7 +120,7 @@ const AdminDashboard: React.FC = () => {
           </div>
           <div className="mt-4 text-sm text-green-600">
             <TrendingUp className="h-4 w-4 inline mr-1" />
-            <span>From confirmed bookings</span>
+            <span>From completed bookings</span>
           </div>
         </div>
         
